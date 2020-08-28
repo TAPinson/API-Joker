@@ -1,6 +1,5 @@
 import { retrieveJoke, retrieveProgrammingJoke, retrieveKnockKnockJoke } from './JokeProvider.js';
 
-
 let jokeData = [];
 
 const jokeBtn = document.querySelector(".request-joke-btn");
@@ -81,6 +80,3 @@ selectorBox.addEventListener('change', () => {
     })
   }
 })
-
-
-
