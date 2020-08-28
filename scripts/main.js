@@ -11,11 +11,28 @@ const selectorBox = document.getElementById('joke-selector')
 
 
 jokeBtn.addEventListener("click", () => {
-  retrieveJoke()
-	.then((responseData) => {
-		jokeData = responseData;
-    setupWriter(jokeData)
-	})
+  const selected = selectorBox.value
+  if (selected === "general") {
+    retrieveJoke()
+    .then((responseData) => {
+      jokeData = responseData;
+      setupWriter(jokeData)
+    })
+  }
+  else if (selected === "knock-knock") {
+    retrieveKnockKnockJoke()
+    .then((responseData) => {
+      jokeData = responseData[0];
+      setupWriter(jokeData)
+    })
+  }
+  else if (selected === "programming") {
+    retrieveProgrammingJoke()
+    .then((responseData) => {
+      jokeData = responseData[0];
+      setupWriter(jokeData)
+    })
+  }
 });
 
 
@@ -53,7 +70,6 @@ selectorBox.addEventListener('change', () => {
     retrieveKnockKnockJoke()
     .then((responseData) => {
       jokeData = responseData[0];
-      console.log(jokeData.setup)
       setupWriter(jokeData)
     })
   }
@@ -61,7 +77,6 @@ selectorBox.addEventListener('change', () => {
     retrieveProgrammingJoke()
     .then((responseData) => {
       jokeData = responseData[0];
-      console.log(jokeData.setup)
       setupWriter(jokeData)
     })
   }
